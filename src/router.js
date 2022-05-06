@@ -19,7 +19,7 @@ const NotFound = () => import('./pages/NotFound.vue');
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/find-a-coach', redirect: '/find-a-coach/coaches' }, //CoachList
+    { path: '/', redirect: '/find-a-coach/coaches' }, //CoachList
     { path: '/find-a-coach/coaches', component: CoachList }, //CoachList
     {
       path: '/find-a-coach/coaches/:id', //CoachDetail
