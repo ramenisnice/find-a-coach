@@ -19,26 +19,30 @@ const NotFound = () => import('./pages/NotFound.vue');
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', redirect: '/coaches' }, //CoachList
-    { path: '/coaches', component: CoachList }, //CoachList
+    { path: '/find-a-coach', redirect: '/find-a-coach/coaches' }, //CoachList
+    { path: '/find-a-coach/coaches', component: CoachList }, //CoachList
     {
-      path: '/coaches/:id', //CoachDetail
+      path: '/find-a-coach/coaches/:id', //CoachDetail
       component: CoachDetail,
       props: true,
       children: [{ path: 'contact', component: ContactCoach }], //ContactCoach
     },
     {
-      path: '/register',
+      path: '/find-a-coach/register',
       component: CoachRegistration,
       meta: { requiresAuth: true },
     }, //CoachRegistration
     {
-      path: '/requests',
+      path: '/find-a-coach/requests',
       component: RequestsReceived,
       meta: { requiresAuth: true },
     }, //RequestsReceived
-    { path: '/auth', component: UserAuth, meta: { requiresUnauth: true } }, //UserAuth
-    { path: '/:notFound(.*)', component: NotFound }, //NotFound
+    {
+      path: '/find-a-coach/auth',
+      component: UserAuth,
+      meta: { requiresUnauth: true },
+    }, //UserAuth
+    { path: '/find-a-coach/:notFound(.*)', component: NotFound }, //NotFound
   ],
 });
 

@@ -12,12 +12,15 @@
           <BaseButton mode="outline" @click="loadCoaches(true)"
             >Refresh</BaseButton
           >
-          <BaseButton link to="/auth?redirect=register" v-if="!isLoggedIn"
+          <BaseButton
+            link
+            to="/find-a-coach/auth?redirect=register"
+            v-if="!isLoggedIn"
             >Login to Register as Coach</BaseButton
           >
           <BaseButton
             link
-            to="/register"
+            to="/find-a-coach/register"
             v-if="isLoggedIn && !isCoach && !isLoading"
             >Register as Coach</BaseButton
           >
