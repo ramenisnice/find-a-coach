@@ -14,7 +14,9 @@ export default {
 
   methods: {
     saveData(formData) {
-      this.$store.dispatch('coaches/addCoach', formData);
+      if (!this.$store.getters['coaches/isCoach']) {
+        this.$store.dispatch('coaches/addCoach', formData);
+      } else alert('You have already registered as a coach.');
       this.$router.replace('/find-a-coach/coaches');
     },
   },
